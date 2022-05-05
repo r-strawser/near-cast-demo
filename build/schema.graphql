@@ -1,0 +1,97 @@
+type _Schema_
+  @fulltext(
+    name: "functionSearch"
+    language: en
+    algorithm: rank
+    include: [
+      { entity: "FunctionCallLog",
+       fields: [
+         { name: "id" }, 
+         { name: "methodName" }
+         ] 
+      }
+    ]
+  )
+  @fulltext(
+    name: "receiptSearch"
+    language: en
+    algorithm: rank
+    include: [
+      { entity: "ReceiptBundle",
+       fields: [
+         { name: "id" }
+         ] 
+      }
+    ]
+  )
+
+type FunctionCallLog @entity {
+  id: ID! # receipt_id
+  methodName: String
+  args: String
+  deposit: String
+  outcomeLogs: String
+  outcomeStatusValue: String
+  outcomeStatusData: String
+  eventName: String
+  eventStandard: String
+
+  # receipt info
+  signerId: String
+  predecessordId: String
+  receiverId: String
+
+  blockHash: String
+  blockHeight: String
+  blockTimestamp: String
+}
+
+type TransferCallLog @entity {
+  id: ID! # receipt_id
+  deposit: String
+  blockHash: String
+  outcomeLogs: String
+}
+
+type DeployContractLog @entity {
+  id: ID! # receipt_id
+  codeHash: String
+  blockHash: String
+  outcomeLogs: String
+}
+
+type ReceiptBundle @entity {
+  id: ID! # receipt_id
+  receipt_gasPrice: String
+  receipt_gasPrices: String
+  receipt_actions: [String!]
+  receipt_inputDataIDs: [String!]
+  receipt_outputDataReceivers: [String!]
+  receipt_predecessorId: String
+  receipt_receiverId: String
+  receipt_signerId: String
+  receipt_signerPublicKey: String
+  receipt_ranTwice: String
+
+
+
+  outcome_blockHash: String
+  outcome_executorId: String
+  outcome_id: String
+  outcome_gasBurnt: String
+  outcome_logs: String
+  outcome_proof: String
+  outcome_receiptIds: [String!]
+  outcome_status: String
+  outcome_tokensBurnt: String
+
+  blocks_propogated: [String!]
+}
+
+type Function @entity {
+  id: ID!
+  example_args: String
+  example_result: String # result not yet supported for this example
+  example_outcomeLogs: String
+  # functions: [String!]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "cast-factory-inc",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "auth": "graph auth --product=hosted-service a483276b11ec4e30807fde6fa25bf755",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ r-strawser/cast-factory-inc",
+    "create-local": "graph create --node http://localhost:8020/ r-strawser/cast-factory-inc",
+    "remove-local": "graph remove --node http://localhost:8020/ r-strawser/cast-factory-inc",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 r-strawser/cast-factory-inc"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.26.0",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}
