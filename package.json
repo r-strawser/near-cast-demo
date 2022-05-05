@@ -4,7 +4,7 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "auth": "graph auth --product=hosted-service a483276b11ec4e30807fde6fa25bf755",
+    "auth": "graph auth --product=hosted-service <your-deploy-key>",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ r-strawser/cast-factory-inc",
     "create-local": "graph create --node http://localhost:8020/ r-strawser/cast-factory-inc",
     "remove-local": "graph remove --node http://localhost:8020/ r-strawser/cast-factory-inc",
